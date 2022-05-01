@@ -24,6 +24,7 @@ button {
   height: 8rem;
   width: 8rem;
   font-size: 4rem;
+  vertical-align: top;
 }
 
 .winner {

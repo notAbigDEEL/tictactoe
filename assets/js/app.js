@@ -6,6 +6,7 @@ buttons.forEach((button) => {
   button.addEventListener("click", btnClicked);
 });
 
+console.log(buttons);
 /* Initialize lastPressed to 'O' since 'X' has turn number 1 */
 let lastPressed = "O";
 
@@ -29,13 +30,15 @@ function updateView(button, value) {
   checkWinner(value);
 }
 
+/* Check to see if there is a winner */
 function checkWinner(value) {
   const btn = document.querySelectorAll("button");
   const btnArr = [];
   btn.forEach((button) => {
     btnArr.push(button.innerText);
   });
-  console.log(btnArr);
+
+  /* Check to see if horizontal, diagonal or vertical are true */
   if (
     checkHorizontal(btnArr) ||
     checkDiagonal(btnArr) ||
@@ -44,26 +47,36 @@ function checkWinner(value) {
     console.log("winner is " + value);
     if (lastPressed === "O") {
       document.querySelector(".winner").innerText += ` Player 1 is the winner`;
+    } else {
+      document.querySelector(".winner").innerText += ` Player 2 is the winner`;
     }
   }
 }
 
+/* Check horizontal buttons to look for winner */
 function checkHorizontal(btnArr) {
   if (btnArr[0] === btnArr[1] && btnArr[1] === btnArr[2]) {
     if (btnArr[0] != "") {
       return true;
+    } else {
+      return false;
     }
   } else if (btnArr[3] === btnArr[4] && btnArr[4] === btnArr[5]) {
     if (btnArr[3] != "") {
       return true;
+    } else {
+      return false;
     }
   } else if (btnArr[6] === btnArr[7] && btnArr[7] === btnArr[8]) {
     if (btnArr[6] !== "") {
       return true;
+    } else {
+      return false;
     }
   }
 }
 
+/* Check vertically for winner */
 function checkVertical(btnArr) {
   if (btnArr[0] === btnArr[3] && btnArr[3] === btnArr[6]) {
     if (btnArr[0] != "") {
@@ -80,6 +93,8 @@ function checkVertical(btnArr) {
   }
 }
 
+/* Check diagonally for winner
+ */
 function checkDiagonal(btnArr) {
   if (btnArr[0] === btnArr[4] && btnArr[4] === btnArr[8]) {
     if (btnArr[0] != "") {
