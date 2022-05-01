@@ -55,54 +55,58 @@ function checkWinner(value) {
 
 /* Check horizontal buttons to look for winner */
 function checkHorizontal(btnArr) {
-  if (btnArr[0] === btnArr[1] && btnArr[1] === btnArr[2]) {
-    if (btnArr[0] != "") {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (btnArr[3] === btnArr[4] && btnArr[4] === btnArr[5]) {
-    if (btnArr[3] != "") {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (btnArr[6] === btnArr[7] && btnArr[7] === btnArr[8]) {
-    if (btnArr[6] !== "") {
-      return true;
-    } else {
-      return false;
-    }
+  if (btnArr[0] === btnArr[1] && btnArr[1] === btnArr[2] && btnArr[0] !== "") {
+    return true;
+  } else if (
+    btnArr[3] === btnArr[4] &&
+    btnArr[4] === btnArr[5] &&
+    btnArr[3] !== ""
+  ) {
+    return true;
+  } else if (
+    btnArr[6] === btnArr[7] &&
+    btnArr[7] === btnArr[8] &&
+    btnArr[6] !== ""
+  ) {
+    return true;
+  } else {
+    return false;
   }
 }
 
 /* Check vertically for winner */
 function checkVertical(btnArr) {
-  if (btnArr[0] === btnArr[3] && btnArr[3] === btnArr[6]) {
-    if (btnArr[0] != "") {
-      return true;
-    }
-  } else if (btnArr[1] === btnArr[4] && btnArr[4] === btnArr[7]) {
-    if (btnArr[1] != "") {
-      return true;
-    }
-  } else if (btnArr[2] === btnArr[5] && btnArr[5] === btnArr[8]) {
-    if (btnArr[2] != "") {
-      return true;
-    }
+  if (btnArr[0] === btnArr[3] && btnArr[3] === btnArr[6] && btnArr[0] != "") {
+    return true;
+  } else if (
+    btnArr[1] === btnArr[4] &&
+    btnArr[4] === btnArr[7] &&
+    btnArr[1] != ""
+  ) {
+    return true;
+  } else if (
+    btnArr[2] === btnArr[5] &&
+    btnArr[5] === btnArr[8] &&
+    btnArr[2] != ""
+  ) {
+    return true;
+  } else {
+    return false;
   }
 }
 
 /* Check diagonally for winner
  */
 function checkDiagonal(btnArr) {
-  if (btnArr[0] === btnArr[4] && btnArr[4] === btnArr[8]) {
-    if (btnArr[0] != "") {
-      return true;
-    }
-  } else if (btnArr[2] === btnArr[4] && btnArr[4] === btnArr[6]) {
-    if (btnArr[2] != "") {
-      return true;
-    }
+  if (btnArr[0] === btnArr[4] && btnArr[4] === btnArr[8] && btnArr[0] != "") {
+    return true;
+  } else if (
+    btnArr[2] === btnArr[4] &&
+    btnArr[4] === btnArr[6] &&
+    btnArr[2] != ""
+  ) {
+    return true;
+  } else {
+    return false;
   }
 }
